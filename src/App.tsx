@@ -117,10 +117,6 @@ function App() {
     setScore(null);
   };
 
-  const resultLabel = !!score
-    ? `Post-operative blood test NECESSARY`
-    : `Post-operative blood test NOT NECESSARY`;
-
   return (
     <React.Fragment>
       <CssBaseline />
@@ -157,7 +153,7 @@ function App() {
               />
               <LineItem>
                 <Button type="submit" variant="contained">
-                  Calcute Graft Rupture Risk
+                  Calcute Risk
                 </Button>
                 <Button color="error" onClick={reset} variant="contained">
                   Reset
@@ -174,12 +170,15 @@ function App() {
                     />
                     <Alert severity={"info"}>
                       <Typography variant="h5" component="h5">
-                        Blablabla post op
+                      The patient has a <b>{score}%</b> risk of ACL reconstruction graft rupture seven years post-surgery.
                       </Typography>
                     </Alert>
                   </Box>
                 ) : null}
               </LineItem>
+              <i>
+              This score was developed by  David Mazy, Gautier Beckers, Lucia Angelelli, Nicolas Cance and David H Dejour
+              </i>
             </Paper>
           </Container>
         </form>
